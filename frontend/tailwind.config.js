@@ -288,6 +288,7 @@ module.exports = {
           "accent-400": "#ff3d00",
           "accent-700": "#dd2c00",
         },
+
         brown: {
           50: "#efebe9",
           100: "#d7ccc8",

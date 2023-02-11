@@ -1,2 +1,3 @@
 import banner from "./banner.jpg";
-export { banner };
+import temp from "./t1.svg";
+export { banner, temp };
