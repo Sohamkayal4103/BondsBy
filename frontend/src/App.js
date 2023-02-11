@@ -8,6 +8,7 @@ import ExploreBonds from "./pages/ExploreBonds/ExploreBonds";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import UserKYC from "./pages/UserKYC/UserKYC";
+import IndivisualBonds from "./pages/IndivisualBonds/IndivisualBonds";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/user-kyc" element={<UserKYC />} />
+            <Route path = "/explore/:id" element = {<IndivisualBonds />} />
           </Route>
         </Routes>
         <Footer />
