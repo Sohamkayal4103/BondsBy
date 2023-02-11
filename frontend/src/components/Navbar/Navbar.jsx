@@ -22,7 +22,6 @@ export const Nav = () => {
     setIsShown(false);
   };
 
-
   return (
     <div className="bg-gray-900 shadow-md">
       <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -74,7 +73,21 @@ export const Nav = () => {
                 Complete KYC
               </Link>
             </li>
-
+            <li>
+              {(user?.email === "mukulkolpe45@gmail.com" ||
+                "sarveshlimaye2002@gmail.com" ||
+                "kayalsoham61@gmail.com" ||
+                "meetmulik5@gmail.com") && (
+                <Link
+                  to="/admin"
+                  aria-label="Our product"
+                  title="Our product"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Admin
+                </Link>
+              )}
+            </li>
             <li>
               {!isAuthenticated ? (
                 <LoginButton />
@@ -209,6 +222,21 @@ export const Nav = () => {
                         >
                           Complete KYC
                         </Link>
+                      </li>
+                      <li>
+                        {(user.email === "mukulkolpe45@gmail.com" ||
+                          "sarveshlimaye2002@gmail.com" ||
+                          "kayalsoham61@gmail.com" ||
+                          "meetmulik5@gmail.com") && (
+                          <Link
+                            to="/admin"
+                            aria-label="Our product"
+                            title="Our product"
+                            class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Admin
+                          </Link>
+                        )}
                       </li>
 
                       <li>
