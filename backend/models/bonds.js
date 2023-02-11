@@ -35,6 +35,9 @@ const bondSchema = new mongoose.Schema({
     volume:{
         type : Number,
     },
+    value:{
+        type : Number,
+    },
     creditRating:{
         type : String,   
     },

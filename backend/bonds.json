@@ -1,0 +1,28 @@
+[
+  {
+    "symbol":"NHAI",
+    "series":"N6",
+    "bondtype":"Regular",
+    "couponrate":8.75,
+    "facevalue":1000,
+    "ltp":1242,
+    "chng":-0.01,
+    "volume":31977,
+    "value":39634532.19,
+    "creditRating":"CRISIL AAA STABLE",
+    "maturityDate":"05-02-2029"
+  },
+  {
+    "symbol":"HUDCO",
+    "series":"N2",
+    "bondtype":"Regular",
+    "couponrate":8.2,
+    "facevalue":1000,
+    "ltp":1180.51,
+    "chng":0.12,
+    "volume":3193,
+    "value":3763365.59,
+    "creditRating":"CARE AA+",
+    "maturityDate":"05-03-2027"
+  }
+]
