@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 import Admin from "./pages/Admin/Admin";
 import ExploreBonds from "./pages/ExploreBonds/ExploreBonds";
 import Home from "./pages/Home/Home";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/explore" element={<ExploreBonds />} />
           <Route path="/user-kyc" element={<UserKYC />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
