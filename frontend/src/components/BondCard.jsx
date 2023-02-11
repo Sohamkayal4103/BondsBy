@@ -1,7 +1,9 @@
 import { symbol } from "prop-types";
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const BondCard = ({
+  _id,
   symbol,
   bondtype,
   creditRating,
@@ -10,6 +12,7 @@ const BondCard = ({
   facevalue,
 }) => {
   return (
+    <Link to ={`/explore/${_id}`}>
     <div>
       <div
         className="sm:w-[288px] w-full rounded-[15px] glassmorphism cursor-pointer m-2 mt-10"
@@ -59,6 +62,7 @@ const BondCard = ({
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

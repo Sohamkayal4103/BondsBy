@@ -12,52 +12,16 @@ const pushbond = async (req, res) => {
   await Bonds.create(bondjson);
 }
 
-// const addUserTrade = async (req,res) => {
-//   const { _id,symbol,series,bondtype,couponrate,facevalue,ltp,chng,volume,value,creditRating,maturityDate,userEmail } = req.body;
-//   const userExist = await User.findOne({userEmail});
-//   const bondExist = await Bonds.findOne({_id});
-  
-//   if(userExist && bondExist){
-//     bondExist.symbol = symbol;
-//     bondExist.series = series;
-//     bondExist.bondtype = bondtype;
-//     bondExist.couponrate = couponrate;
-//     bondExist.facevalue = facevalue;
-//     bondExist.ltp = ltp;
-//     bondExist.chng = chng;
-//     bondExist.volume = volume;
-//     bondExist.value = value;
-//     bondExist.creditRating = creditRating;
-//     bondExist.maturityDate = maturityDate;
-//     bondExist.userTrade.push(userExist._id);
-//     res.json({
-//       _id: bondExist._id,
-//       symbol: bondExist.symbol,
-//       series: bondExist.series,
-//       bondtype: bondExist.bondtype,
-//       couponrate: bondExist.couponrate,
-//       facevalue: bondExist.facevalue,
-//       ltp: bondExist.ltp,
-//       chng: bondExist.chng,
-//       volume: bondExist.volume,
-//       value: bondExist.value,
-//       creditRating: bondExist.creditRating,
-//       maturityDate: bondExist.maturityDate,
-//       userTrade: bondExist.userTrade
-//     })
-//   }
-//   else if(userExist){
-//     console.log("went here")
-//   }
-//   else if(bondExist){
-//     console.log("here it is")
-//   }
-//   else{
-//     res.status(400);
-//     throw new Error('Something went wrong')
-//   }
-
-// }
+const getBondsById = asyncHandler(async (req, res) => {
+  const bond = await Bonds.findById(req.params.bondId)
+  if(bond){
+    res.json(bond)
+  }
+  else{
+    res.status(404)
+    throw new Error('Bond not found')
+  }
+})
 
 const addTrade = async (req, res) => {
   const {email} = req.body
@@ -78,4 +42,4 @@ const addTrade = async (req, res) => {
 }
 
 
-module.exports = {getBonds,pushbond,addTrade};
+module.exports = {getBonds,pushbond,addTrade,getBondsById};
