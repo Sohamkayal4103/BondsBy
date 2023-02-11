@@ -11,29 +11,28 @@ const bondSchema = new mongoose.Schema({
     },
     bondtype:{
         type : String,
-        required : true,
     },
     couponrate:{
-        type : Number,
+        type : String,
         required : true,
     },
     facevalue:{
-        type : Number,
+        type : String,
         required : true,
     },
     ltp:{
-        type : Number,
+        type : String,
         required : true,
     },
     chng:{
-        type : Number,
+        type : String,
         required : true,
     },
     volume:{
-        type : Number,
+        type : String,
     },
     value:{
-        type : Number,
+        type : String,
     },
     creditRating:{
         type : String,   
