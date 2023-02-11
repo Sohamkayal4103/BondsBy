@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
     dmataccountnumber:{
         type: Number,
     },
+    iSVerified:{
+        type: Boolean,
+        default: false
+    }
     bonds:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Bonds',
