@@ -5,6 +5,10 @@ const getUsers = async (req, res) => {
     res.status(200).json(await User.find())
 }
 
+const getUserByEmail = async(req,res) => {
+    res.status(200).json(await User.findOne({email: req.params.email}))
+}
+
 
 const addUser = asyncHandler(async(req,res) => {
     const { name, email, image, pancard, aadharcard, address, dmataccountnumber, bonds } = req.body
@@ -63,4 +67,4 @@ const verifyUser = asyncHandler(async(req,res) => {
     }
 })
 
-module.exports = {getUsers,addUser,verifyUser}
+module.exports = {getUsers,addUser,verifyUser,getUserByEmail}
