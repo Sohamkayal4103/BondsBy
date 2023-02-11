@@ -39,7 +39,12 @@ const bondSchema = new mongoose.Schema({
     },
     maturityDate:{
         type : String,
-    }
+    },
+    userTrade:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        default:[]
+    }]
 });
 
 module.exports = mongoose.model('Bonds',bondSchema);

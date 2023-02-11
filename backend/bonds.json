@@ -10,7 +10,8 @@
     "volume": 31977,
     "value": "3,96,34,532.19",
     "creditRating": "CRISIL AAA STABLE / CARE AAA / BWR AAA STABLE",
-    "maturityDate": "05-Feb-29"
+    "maturityDate": "05-Feb-29",
+    "userTrade": ["63e7a15c0177a6ae7db3f592"]
   },
   {
     "symbol": "NHAI",
