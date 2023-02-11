@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useState } from "react";
 import FileBase64 from "react-file-base64";
 
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const UserKYC = () => {
   const navigate = useNavigate();
@@ -10,19 +11,31 @@ const UserKYC = () => {
   const [dematAccNo, setDematAccNo] = useState("");
   const [panCardImage, setPanCardImage] = useState("");
   const [aadharCardImage, setAadharCardImage] = useState("");
+  const {user} = useAuth0();
+  let name = user.name;
+  let email = user.email;
+  let image = user.picture;
 
   const handleSubmit = async (e) => {
-    // let events = await fetch(`http://localhost:5000/api/events/add`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({}),
-    // });
-    // console.log(events.json());
+    let users = await fetch(`http://localhost:5000/api/users/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+         name: name,
+         email: email,
+         image: image,
+         pancard: panCardImage,
+         aadharcard: aadharCardImage,
+         address: address,
+         dmataccountnumber: dematAccNo,  
+      }),
+    });
 
-    // navigate("/");
-    console.log(address, dematAccNo, panCardImage, aadharCardImage);
+
+    navigate("/");
+    console.log(users);
   };
 
   return (
