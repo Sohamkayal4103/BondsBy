@@ -27,8 +27,40 @@ const addUser = asyncHandler(async(req,res) => {
         res.status(201).json(user)
     } else {
         res.status(400)
-       throw new Error('Invalid user data')
+        throw new Error('Invalid user data')
     }
 })
 
-module.exports = {getUsers,addUser}
+const verifyUser = asyncHandler(async(req,res) => {
+    const { name, email, image, pancard, aadharcard, address, dmataccountnumber, bonds } = req.body
+    const userExist = await User.findById(req.params.id)
+    if (userExist) {
+        userExist.name = name
+        userExist.email = email
+        userExist.image = image
+        userExist.pancard = pancard
+        userExist.aadharcard = aadharcard
+        userExist.address = address
+        userExist.dmataccountnumber = dmataccountnumber
+        userExist.bonds = bonds
+        userExist.iSVerified = true
+        const updatedUser = await userExist.save()
+        res.json({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            image: updatedUser.image,
+            pancard: updatedUser.pancard,
+            aadharcard: updatedUser.aadharcard,
+            address: updatedUser.address,
+            dmataccountnumber: updatedUser.dmataccountnumber,
+            bonds: updatedUser.bonds,
+            iSVerified: updatedUser.iSVerified,
+        })
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
+})
+
+module.exports = {getUsers,addUser,verifyUser}
