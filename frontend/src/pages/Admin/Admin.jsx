@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./Admin.css";
 
 const Admin = () => {
   const [email, setEmail] = useState("");
   const [passwd, setPasswd] = useState("");
   const [login, setLogin] = useState(false);
-
+  const [users, setUsers] = useState([]);
+  const endpoint = "http://localhost:5000/api/users/";
+  const getUsers = async () => {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    setUsers(data);
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -18,6 +28,7 @@ const Admin = () => {
       setLogin(false);
     }
   };
+
   return (
     <div>
       {!login ? (
@@ -82,8 +93,57 @@ const Admin = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <h2>Login to Continue</h2>
+        <div className="admin-duty">
+          !
+          {users.map(
+            (user) =>
+              !user?.iSVerified && (
+                <div>
+                  <div className="profile-header">
+                    <img
+                      src={user.image}
+                      alt="Profile"
+                      className="profile-pic"
+                    />
+                    <span>{user.name}</span>
+                  </div>
+                  <div className="profile-info">
+                    <span>Email: {user.email}</span>
+                    <span>Address: {user.address}</span>
+                    <span>Demat Account: {user.dmataccountnumber}</span>
+                  </div>
+
+                  <div className="img-docs">
+                    <img src={user.pancard} alt="Pancard" />
+                    <img src={user.adharcard} alt="Aadharcard" />
+                  </div>
+                  <button
+                    onClick={async () => {
+                      await fetch(
+                        `http://localhost:5000/api/users/verify/${user._id}`,
+                        {
+                          method: "PUT",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            name: user.name,
+                            email: user.email,
+                            image: user.image,
+                            address: user.address,
+                            dmataccountnumber: user.dmataccountnumber,
+                            pancard: user.pancard,
+                            adharcard: user.adharcard,
+                          }),
+                        }
+                      );
+                    }}
+                  >
+                    Approve
+                  </button>
+                </div>
+              )
+          )}
         </div>
       )}
     </div>
