@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const bondSchema = new mongoose.Schema({
-    id : {
-        type : Number,
-        required : true,
-    },
+
     symbol : {
         type : String,
         required : true,
