@@ -41,5 +41,23 @@ const addTrade = async (req, res) => {
   }
 }
 
+const updateBondvol = async (req,res) => {
+  const id = await req.params.bondId;
+  const {unitsReq} = req.body;
+  const bond = await Bonds.findById(id);
+  const availableBonds = parseInt(bond.volume);
+  const neededBonds = parseInt(unitsReq);
+  const finalVolume = availableBonds - neededBonds;
+  const finalVolumeStr = finalVolume.toString();
+  const bondItem = await Bonds.findByIdAndUpdate(id,{volume:finalVolumeStr},{new:true});
+  if(bondItem){
+    res.json(bondItem)
+  }
+  else{
+    res.status(404)
+    throw new Error('Something went wrong')
+  }
+}
 
-module.exports = {getBonds,pushbond,addTrade,getBondsById};
+
+module.exports = {getBonds,pushbond,addTrade,getBondsById,updateBondvol};
