@@ -4,7 +4,7 @@ import FileBase64 from "react-file-base64";
 
 import { useNavigate } from "react-router-dom";
 
-const UserKyc = () => {
+const UserKYC = () => {
   const navigate = useNavigate();
   const [address, setAddress] = useState("");
   const [dematAccNo, setDematAccNo] = useState("");
@@ -143,4 +143,4 @@ const UserKyc = () => {
   );
 };
 
-export default UserKyc;
+export default UserKYC;
