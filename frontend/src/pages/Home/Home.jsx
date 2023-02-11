@@ -1,10 +1,17 @@
 import { temp } from "../../assets";
 import Content from "../../components/Content";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="bg-gray-800 h-screen flex items-center justify-center">
-      <div className="flex items-center justify-evenly ">
+      <div data-aos="fade-up" className="flex items-center justify-evenly ">
         <div className="ml-12">
           <img
             className="object-cover w-full h-56 rounded sm:h-96"
@@ -40,7 +47,7 @@ const Home = () => {
               Buying bonds has
               <br className="hidden md:block" />
               never been{" "}
-              <span className="inline-block text-deep-purple-accent-400">
+              <span className="inline-block text-deep-purple-accent-200">
                 easier
               </span>
             </h5>
@@ -49,11 +56,11 @@ const Home = () => {
               Voluptatibus, aspernatur?
             </p>
             <div className="mt-2">
-              <a
-                href="#_"
-                class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-indigo-700 rounded-full shadow-md group"
+              <Link
+                to="/explore"
+                class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-deep-purple-accent-200 transition duration-300 ease-out border-2 border-white rounded-full shadow-md group"
               >
-                <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-600 group-hover:translate-x-0 ease">
+                <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-deep-purple-accent-200 group-hover:translate-x-0 ease">
                   <svg
                     class="w-6 h-6"
                     fill="none"
@@ -69,11 +76,12 @@ const Home = () => {
                     ></path>
                   </svg>
                 </span>
-                <span class="absolute flex items-center justify-center w-full h-full text-indigo-600 transition-all duration-300 transform group-hover:translate-x-full ease">
+
+                <span class="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
                   Explore Bonds
                 </span>
                 <span class="relative invisible">Explore Bonds</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
