@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import { Nav } from "./components/Navbar/Navbar";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 import Admin from "./pages/Admin/Admin";
 import ExploreBonds from "./pages/ExploreBonds/ExploreBonds";
 import Home from "./pages/Home/Home";
@@ -15,10 +16,12 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/explore" element={<ExploreBonds />} />
-          <Route path="/user-kyc" element={<UserKYC />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/user-kyc" element={<UserKYC />} />
+          </Route>
         </Routes>
         <Footer />
       </Router>
