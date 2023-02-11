@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import FileBase64 from "react-file-base64";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserKYC = () => {
   const navigate = useNavigate();
@@ -15,6 +18,17 @@ const UserKYC = () => {
   let name = user.name;
   let email = user.email;
   let image = user.picture;
+  const notify = () =>
+  toast.success("KYC details uploaded successfully !", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
   const handleSubmit = async (e) => {
     let users = await fetch(`http://localhost:5000/api/users/add`, {
@@ -32,8 +46,7 @@ const UserKYC = () => {
         dmataccountnumber: dematAccNo,
       }),
     });
-
-    navigate("/");
+    notify();
     console.log(users);
   };
 
@@ -92,7 +105,7 @@ const UserKYC = () => {
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                   Complete Your KYC
                 </h3>
-                <form>
+                <div>
                   <div className="mb-1 sm:mb-2">
                     <label className="inline-block mb-1 font-medium">
                       Demat Account Number
@@ -188,6 +201,7 @@ const UserKYC = () => {
                     </div>
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
+                  <ToastContainer />
                     <button
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -197,8 +211,9 @@ const UserKYC = () => {
                     >
                       Submit
                     </button>
+                    
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
