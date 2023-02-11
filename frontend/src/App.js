@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import { Nav } from "./components/Navbar/Navbar";
 import Admin from "./pages/Admin/Admin";
 import ExploreBonds from "./pages/ExploreBonds/ExploreBonds";
 import Home from "./pages/Home/Home";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
