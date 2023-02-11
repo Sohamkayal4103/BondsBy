@@ -5,8 +5,8 @@ import FileBase64 from "react-file-base64";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserKYC = () => {
   const navigate = useNavigate();
@@ -19,16 +19,16 @@ const UserKYC = () => {
   let email = user.email;
   let image = user.picture;
   const notify = () =>
-  toast.success("KYC details uploaded successfully !", {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
+    toast.success("KYC details uploaded successfully !", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   const handleSubmit = async (e) => {
     let users = await fetch(`http://localhost:5000/api/users/add`, {
@@ -113,6 +113,7 @@ const UserKYC = () => {
                     <input
                       placeholder="Demat Account Number"
                       required
+                      maxLength={16}
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       onChange={(e) => setDematAccNo(e.target.value)}
@@ -201,7 +202,7 @@ const UserKYC = () => {
                     </div>
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
-                  <ToastContainer />
+                    <ToastContainer />
                     <button
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -211,7 +212,6 @@ const UserKYC = () => {
                     >
                       Submit
                     </button>
-                    
                   </div>
                 </div>
               </div>
