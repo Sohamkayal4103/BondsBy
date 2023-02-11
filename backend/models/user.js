@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     iSVerified:{
         type: Boolean,
         default: false
-    }
+    },
     bonds:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Bonds',
