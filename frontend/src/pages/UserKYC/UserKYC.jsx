@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import FileBase64 from "react-file-base64";
 
@@ -11,7 +11,7 @@ const UserKYC = () => {
   const [dematAccNo, setDematAccNo] = useState("");
   const [panCardImage, setPanCardImage] = useState("");
   const [aadharCardImage, setAadharCardImage] = useState("");
-  const {user} = useAuth0();
+  const { user } = useAuth0();
   let name = user.name;
   let email = user.email;
   let image = user.picture;
@@ -23,57 +23,119 @@ const UserKYC = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-         name: name,
-         email: email,
-         image: image,
-         pancard: panCardImage,
-         aadharcard: aadharCardImage,
-         address: address,
-         dmataccountnumber: dematAccNo,  
+        name: name,
+        email: email,
+        image: image,
+        pancard: panCardImage,
+        aadharcard: aadharCardImage,
+        address: address,
+        dmataccountnumber: dematAccNo,
       }),
     });
-
 
     navigate("/");
     console.log(users);
   };
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600">
-      <div className="flex h-screen items-center justify-center ">
-        <form className="bg-gray-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex ">
-          <div className="mr-5 w-3/6 flex flex-col align-top">
-            <div className="mb-4 mt-0">
-              <label className="block text-white text-sm font-bold mb-3">
-                Demat Account Number
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="title"
-                type="text"
-                placeholder="Enter Demat Account Number"
-                onChange={(e) => setDematAccNo(e.target.value)}
-              />
-            </div>
-            <div className="mb-4 mt-0">
-              <label className="block text-white text-sm font-bold mb-3">
-                Address
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="title"
-                type="text"
-                placeholder="Enter Address"
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
+    <div className="overflow-hidden bg-gray-800">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="flex flex-col items-center justify-between xl:flex-row">
+          <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+              KYC is <span className="text-teal-accent-400">Essential</span>
+            </h2>
+            <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudan, totam rem aperiam, eaque ipsa quae.
+            </p>
+            <a
+              href="/"
+              aria-label=""
+              className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
+            >
+              Learn more
+              <svg
+                className="inline-block w-3 ml-2"
+                fill="currentColor"
+                viewBox="0 0 12 12"
+              >
+                <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
+              </svg>
+            </a>
           </div>
-          <div className="w-3/6">
-            <div>
-              <label className="block text-white text-sm font-bold mb-2">
-                Add Pan Card
-              </label>
-              {/* <div className="flex justify-center items-center w-full">
+          <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
+            <div className="relative">
+              <svg
+                viewBox="0 0 52 24"
+                fill="currentColor"
+                className="absolute bottom-0 right-0 z-0 hidden w-32 -mb-8 -mr-20 text-teal-accent-400 lg:w-32 lg:-mr-16 sm:block"
+              >
+                <defs>
+                  <pattern
+                    id="766323e1-e594-4ffd-a688-e7275079d540"
+                    x="0"
+                    y="0"
+                    width=".135"
+                    height=".30"
+                  >
+                    <circle cx="1" cy="1" r=".7" />
+                  </pattern>
+                </defs>
+                <rect
+                  fill="url(#766323e1-e594-4ffd-a688-e7275079d540)"
+                  width="52"
+                  height="24"
+                />
+              </svg>
+              <div className="relative bg-white rounded shadow-2xl p-7 sm:p-10">
+                <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
+                  Complete Your KYC
+                </h3>
+                <form>
+                  <div className="mb-1 sm:mb-2">
+                    <label className="inline-block mb-1 font-medium">
+                      Demat Account Number
+                    </label>
+                    <input
+                      placeholder="Demat Account Number"
+                      required
+                      type="text"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                      onChange={(e) => setDematAccNo(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-1 sm:mb-2">
+                    <label className="inline-block mb-1 font-medium">
+                      Address
+                    </label>
+                    <input
+                      placeholder="Enter Address"
+                      required
+                      type="text"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <div>
+                      <label className="block text-white text-sm font-bold mb-2">
+                        Add Aadhar Card
+                      </label>
+                      <div className="block mb-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                        <FileBase64
+                          id="banners"
+                          type="file"
+                          multiple={false}
+                          onDone={({ base64 }) => setAadharCardImage(base64)}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-white text-sm font-bold mb-2">
+                        Add Pan Card
+                      </label>
+                      {/* <div className="flex justify-center items-center w-full">
                   <label className="flex flex-col justify-center items-center w-full h-34 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                     <div className="flex flex-col justify-center items-center pt-5 pb-6">
                       <svg
@@ -113,44 +175,34 @@ const UserKYC = () => {
                   multiple={false}
                   onDone={({ base64 }) => setOrganizerIdentification(base64)}
                 /> */}
-              {/* </label> */}
-              {/* </div> */}
-              <div className="block mb-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
-                <FileBase64
-                  id="banners"
-                  type="file"
-                  multiple={false}
-                  onDone={({ base64 }) => setPanCardImage(base64)}
-                />
+                      {/* </label> */}
+                      {/* </div> */}
+                      <div className="block mb-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                        <FileBase64
+                          id="banners"
+                          type="file"
+                          multiple={false}
+                          onDone={({ base64 }) => setPanCardImage(base64)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 mb-2 sm:mb-4">
+                    <button
+                      type="submit"
+                      className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      onClick={() => {
+                        handleSubmit();
+                      }}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
               </div>
-            </div>
-            <div>
-              <label className="block text-white text-sm font-bold mb-2">
-                Add Aadhar Card
-              </label>
-              <div className="block mb-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
-                <FileBase64
-                  id="banners"
-                  type="file"
-                  multiple={false}
-                  onDone={({ base64 }) => setAadharCardImage(base64)}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center mt-2">
-              <button
-                className="bg-white hover:bg-gray-300 mt-4 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Submit
-              </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
