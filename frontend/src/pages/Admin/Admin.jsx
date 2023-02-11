@@ -9,7 +9,7 @@ const Admin = () => {
     e.preventDefault();
     if (
       email === "mukulkolpe45@gmail.com" ||
-      "mukulkolpe45@gmail.com" ||
+      "kayalsoham61@gmail.com" ||
       "sarveshlimaye2002@gmail.com" ||
       "meetmulik5@gmail.com" & (passwd === "sohamop")
     ) {
@@ -32,14 +32,14 @@ const Admin = () => {
                   <div className="space-y-8">
                     <div className="space-y-2">
                       <label
-                        htmlFor="walletAddress"
+                        htmlFor="email"
                         className="text-gray-600 dark:text-gray-300"
                       >
-                        Wallet Address
+                        Email
                       </label>
                       <input
                         type="text"
-                        id="walletAddress"
+                        id="email"
                         className="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-200 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
                         onChange={(e) => setEmail(e.target.value)}
                       />
