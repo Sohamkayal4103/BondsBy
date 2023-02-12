@@ -149,22 +149,5 @@ export default function IndivisualBonds() {
         </dl>
       </div>
     </div>
-
-    // <div>
-    //   <div></div>
-    //   <div>{}</div>
-    //   <div>{}</div>
-    //   <div>{userTrade}</div>
-    //   <div>{}</div>
-    //   <div>{}</div>
-    //   <div>{objid}</div>
-    //   <input
-    //     type="text"
-    //     placeholder="Enter the Units"
-    //     value={units}
-    //     onChange={(e)=>setUnits(e.target.value)}
-    //   />
-    //   <button >Invest</button>
-    //   </div>
   )
 }
