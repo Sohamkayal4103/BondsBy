@@ -135,12 +135,26 @@ export default function IndivisualBonds() {
               {volume}
             </dd>
           </div>
-          <div className = "flex items-center justify-center m-4">
+          <div className = "flex flex-col items-center justify-center m-4">
+            <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+              Select Units
+            </label>
+            <div className="relative mt-1 rounded-md shadow-sm m-4">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 m-4">
+              </div>
+              <input
+                type="text"
+                className="block w-full rounded-md border-gray-300 bg-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm m-4"
+                placeholder="0"
+                value={units}
+                onChange={(e)=>setUnits(e.target.value)}
+              />
+            </div>
             <button
               type="submit"
               className="group relative  rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               onClick={handleSubmit}
-              >
+            >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 w-5">
               </span>
                 Invest
