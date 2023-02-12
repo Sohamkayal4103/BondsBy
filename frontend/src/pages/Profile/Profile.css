@@ -29,3 +29,13 @@
     align-items: center;
     margin: 0 0 0 20px;
 }
+
+.not-verified-img {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}

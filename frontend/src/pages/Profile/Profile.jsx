@@ -50,7 +50,7 @@ const Profile = () => {
     //   </div>
     // </div>
     <div className="overflow-hidden">
-      <div className="max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-24">
+      <div className="max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-24 h-[80vh]">
         {iSVerified ? (
           <div className="px-6">
             <div className="flex flex-wrap justify-center">
@@ -100,7 +100,14 @@ const Profile = () => {
             </div>
           </div>
         ) : (
-          <h2>KYC Not Verified</h2>
+          <div>
+            <h1>KYC Not Verified</h1>
+            <img
+              src="https://assets.webiconspng.com/uploads/2016/12/Not-Verified-Icon-Image.png"
+              alt="not-verified"
+              className="not-verified-img"
+            />
+          </div>
         )}
       </div>
     </div>
