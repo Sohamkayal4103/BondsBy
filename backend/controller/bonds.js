@@ -43,13 +43,15 @@ const addTrade = async (req, res) => {
 
 const updateBondvol = async (req,res) => {
   const id = await req.params.bondId;
-  const {unitsReq} = req.body;
+  const {unitsReq,userId} = req.body;
   const bond = await Bonds.findById(id);
   const availableBonds = parseInt(bond.volume);
   const neededBonds = parseInt(unitsReq);
   const finalVolume = availableBonds - neededBonds;
   const finalVolumeStr = finalVolume.toString();
   const bondItem = await Bonds.findByIdAndUpdate(id,{volume:finalVolumeStr},{new:true});
+  const userItem = await User.findByIdAndUpdate(userId,{$push:{bonds:id}},{new:true});
+  // console.log(userItem);
   if(bondItem){
     res.json(bondItem)
   }
