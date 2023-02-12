@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Admin.css";
+import AdminCard from "./AdminCard";
 
 const Admin = () => {
   const [email, setEmail] = useState("");
@@ -97,50 +98,16 @@ const Admin = () => {
           {users.map(
             (user) =>
               !user?.iSVerified && (
-                <div>
-                  <div className="profile-header">
-                    <img
-                      src={user.image}
-                      alt="Profile"
-                      className="profile-pic"
-                    />
-                    <span>{user.name}</span>
-                  </div>
-                  <div className="profile-info">
-                    <span>Email: {user.email}</span>
-                    <span>Address: {user.address}</span>
-                    <span>Demat Account: {user.dmataccountnumber}</span>
-                  </div>
-
-                  <div className="img-docs">
-                    <img src={user.pancard} alt="Pancard" />
-                    <img src={user.adharcard} alt="Aadharcard" />
-                  </div>
-                  <button
-                    onClick={async () => {
-                      await fetch(
-                        `http://localhost:5000/api/users/verify/${user._id}`,
-                        {
-                          method: "PUT",
-                          headers: {
-                            "Content-Type": "application/json",
-                          },
-                          body: JSON.stringify({
-                            name: user.name,
-                            email: user.email,
-                            image: user.image,
-                            address: user.address,
-                            dmataccountnumber: user.dmataccountnumber,
-                            pancard: user.pancard,
-                            adharcard: user.adharcard,
-                          }),
-                        }
-                      );
-                    }}
-                  >
-                    Approve
-                  </button>
-                </div>
+                <AdminCard
+                  image={user.image}
+                  name={user.name}
+                  email={user.email}
+                  id={user._id}
+                  address={user.address}
+                  dmataccountnumber={user.dmataccountnumber}
+                  pancard={user.pancard}
+                  adharcard={user.adharcard}
+                />
               )
           )}
         </div>

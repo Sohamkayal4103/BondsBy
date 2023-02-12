@@ -56,8 +56,8 @@ export const Nav = () => {
             <li>
               <Link
                 to="/explore"
-                aria-label="Events"
-                title="Events"
+                aria-label="Explore"
+                title="Explore"
                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Explore
@@ -66,8 +66,8 @@ export const Nav = () => {
             <li>
               <Link
                 to="/user-kyc"
-                aria-label=" Host an event"
-                title=" Host an event"
+                aria-label="Complete KYC"
+                title="Complete KYC"
                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Complete KYC
@@ -80,8 +80,8 @@ export const Nav = () => {
                 "meetmulik5@gmail.com") && (
                 <Link
                   to="/admin"
-                  aria-label="Our product"
-                  title="Our product"
+                  aria-label="Admin"
+                  title="Admin"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Admin

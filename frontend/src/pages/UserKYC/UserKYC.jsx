@@ -133,7 +133,7 @@ const UserKYC = () => {
                   </div>
                   <div>
                     <div>
-                      <label className="block text-white text-sm font-bold mb-2">
+                      <label className="inline-block mb-1 font-medium">
                         Add Aadhar Card
                       </label>
                       <div className="block mb-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
@@ -146,7 +146,7 @@ const UserKYC = () => {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-white text-sm font-bold mb-2">
+                      <label className="inline-block mb-1 font-medium">
                         Add Pan Card
                       </label>
                       {/* <div className="flex justify-center items-center w-full">
