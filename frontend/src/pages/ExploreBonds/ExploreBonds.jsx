@@ -8,7 +8,7 @@ const ExploreBonds = () => {
   const getBonds = async () => {
     const response = await fetch(endpoint);
     const data = await response.json();
-    setBonds(data.slice(0,22));
+    setBonds(data.slice(0,19));
   };
   
   const MaxLimit = 20;
