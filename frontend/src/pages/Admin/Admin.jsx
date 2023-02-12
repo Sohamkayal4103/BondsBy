@@ -94,7 +94,6 @@ const Admin = () => {
         </div>
       ) : (
         <div className="admin-duty">
-          !
           {users.map(
             (user) =>
               !user?.iSVerified && (
