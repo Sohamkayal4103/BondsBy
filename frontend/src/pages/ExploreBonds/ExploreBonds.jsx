@@ -8,13 +8,15 @@ const ExploreBonds = () => {
   const getBonds = async () => {
     const response = await fetch(endpoint);
     const data = await response.json();
-    setBonds(data.slice(0,19));
+    setBonds(data.slice(0,24));
   };
   
   const MaxLimit = 20;
 
 
   useEffect(() => {
+    
+    getBonds();
     if(bonds.length > MaxLimit){
       addNotification({
         title: 'New Bond Added',
@@ -25,7 +27,6 @@ const ExploreBonds = () => {
         native: true // when using native, your OS will handle theming.
     });
     }
-    getBonds();
   }, []);
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r pt-6 pb-12">

@@ -17,6 +17,14 @@ export default function IndivisualBonds() {
     const [volume,setVolume] = useState("");
     const [objid,setObjid] = useState("");
     const [units,setUnits] = useState("");
+    const [cost,setCost] = useState(0);
+
+    const calculateCost = async()=>{
+      
+      const costTemp = parseInt(faceval) * parseInt(units);
+      setCost(costTemp);
+      console.log(`Total Cost: ${costTemp} ${units} ${faceval} `);
+    }
 
     const handleSubmit = async (e) =>{
       e.preventDefault();
@@ -26,6 +34,7 @@ export default function IndivisualBonds() {
       console.log(`b: ${b}`);
       if(parseInt(units) <= parseInt(volume)){
         updateVolume();
+        calculateCost();
       }
       else{
         console.log(units + " " + volume);
@@ -44,7 +53,7 @@ export default function IndivisualBonds() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            unitsReq: units
+            unitsReq: units,
           }),
         }
       );
@@ -159,6 +168,12 @@ export default function IndivisualBonds() {
               </span>
                 Invest
             </button>
+            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt className="text-sm font-medium text-gray-500">Total Cost:</dt>
+              <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                {cost}
+              </dd>
+            </div>
           </div>
         </dl>
       </div>
