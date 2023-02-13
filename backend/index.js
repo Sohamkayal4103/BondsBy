@@ -13,6 +13,7 @@ const connectDB = require('./db/connect')
 //routes
 const bondsRouter = require('./routes/bonds')
 const userRouter = require('./routes/user')
+const transactionRouter = require('./routes/transactions')
 
 app.use(express.json());
 app.use(cors())
@@ -21,6 +22,7 @@ app.get('/api', (req, res) => {
   })
 app.use('/api/bonds', bondsRouter)
 app.use('/api/users', userRouter)
+app.use('/api/transactions', transactionRouter)
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
