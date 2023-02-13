@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
-const userSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema({
     faceVal: {
-        type: number,
+        type: Number,
         required: [true, 'Facevalue are required'],
     },
     units: {
-        type: number,
+        type: Number,
         required: [true, 'Units are required'],
     },
     total_cost: {
-        type: number,
+        type: Number,
         required: [true, 'Total amount is required'],
         unique: true,
     },
@@ -23,4 +23,4 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Transaction', userSchema)
+module.exports = mongoose.model('Transaction', transactionSchema)
