@@ -71,7 +71,7 @@ const addBond = asyncHandler(async(req,res) => {
     const {userId} = req.body;
     const bondExist = await Bonds.findById(req.params.id);
     const userExist = await User.findById(req.params.id);
-    console.lfo(bondExist);
+    console.log(bondExist);
 
 })
 
