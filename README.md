@@ -1,1 +1,2 @@
 # BondsBy
+BondsBy is a bond trading and management platform built with React.js for the frontend, Node.js and Express.js for the backend, and MongoDB as the database. It offers a comprehensive solution for investors and traders, providing features like bond portfolio tracking, real-time bond market data, risk assessment tools, and browser push notifications for new bond alerts. Users can view their purchased bonds and track profit earned on their user profile page. BondsBy showcases expertise in web development and provides a seamless bond trading experience.
