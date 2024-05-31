@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `${REACT_APP_BACKEND_URL}/api/users/${email}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/${email}`
       );
       const data = await response.json();
       setName(data.name);

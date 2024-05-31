@@ -31,21 +31,24 @@ const UserKYC = () => {
     });
 
   const handleSubmit = async (e) => {
-    let users = await fetch(`${REACT_APP_BACKEND_URL}/api/users/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        image: image,
-        pancard: panCardImage,
-        aadharcard: aadharCardImage,
-        address: address,
-        dmataccountnumber: dematAccNo,
-      }),
-    });
+    let users = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/api/users/add`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          image: image,
+          pancard: panCardImage,
+          aadharcard: aadharCardImage,
+          address: address,
+          dmataccountnumber: dematAccNo,
+        }),
+      }
+    );
     notify();
     console.log(users);
   };

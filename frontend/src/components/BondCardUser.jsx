@@ -12,7 +12,9 @@ const BondCard = ({ _id }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${REACT_APP_BACKEND_URL}/api/bonds/${_id}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/bonds/${_id}`
+      );
       const data = await response.json();
       console.log(data);
       setSymbol(data.symbol);
