@@ -42,7 +42,7 @@ export default function IndivisualBonds() {
 
   const updateVolume = async () => {
     console.log(units);
-    await fetch(`http://localhost:8000/api/bonds/trade/${objid}`, {
+    await fetch(`${REACT_APP_BACKEND_URL}/api/bonds/trade/${objid}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export default function IndivisualBonds() {
   let { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8000/api/bonds/${id}`);
+      const response = await fetch(`${REACT_APP_BACKEND_URL}/api/bonds/${id}`);
       const data = await response.json();
       console.log(data);
       setBondType(data.bondtype);

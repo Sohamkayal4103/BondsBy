@@ -31,7 +31,7 @@ const UserKYC = () => {
     });
 
   const handleSubmit = async (e) => {
-    let users = await fetch(`http://localhost:8000/api/users/add`, {
+    let users = await fetch(`${REACT_APP_BACKEND_URL}/api/users/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

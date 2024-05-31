@@ -59,7 +59,7 @@ const AdminCard = ({
         <button
           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
           onClick={async () => {
-            await fetch(`http://localhost:8000/api/users/verify/${id}`, {
+            await fetch(`${REACT_APP_BACKEND_URL}/api/users/verify/${id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

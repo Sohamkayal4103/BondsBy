@@ -3,7 +3,7 @@ import BondCard from "../../components/BondCard";
 
 const ExploreBonds = () => {
   const [bonds, setBonds] = useState([]);
-  const endpoint = "http://localhost:8000/api/bonds/";
+  const endpoint = `${REACT_APP_BACKEND_URL}/api/bonds/`;
   const getBonds = async () => {
     const response = await fetch(endpoint);
     const data = await response.json();
