@@ -21,7 +21,7 @@ const UserKYC = () => {
   const notify = () =>
     toast.success("KYC details uploaded successfully !", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 8000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -31,7 +31,7 @@ const UserKYC = () => {
     });
 
   const handleSubmit = async (e) => {
-    let users = await fetch(`http://localhost:5000/api/users/add`, {
+    let users = await fetch(`http://localhost:8000/api/users/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

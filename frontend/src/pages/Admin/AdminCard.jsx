@@ -10,7 +10,7 @@ const AdminCard = ({
   pancard,
   adharcard,
 }) => {
-  console.log("adh",adharcard)
+  console.log("adh", adharcard);
   return (
     <div className="shadow-lg">
       <div className="flex flex-col transition duration-300 bg-white rounded shadow-sm hover:shadow">
@@ -59,7 +59,7 @@ const AdminCard = ({
         <button
           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
           onClick={async () => {
-            await fetch(`http://localhost:5000/api/users/verify/${id}`, {
+            await fetch(`http://localhost:8000/api/users/verify/${id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

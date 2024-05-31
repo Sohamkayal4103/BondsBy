@@ -7,7 +7,7 @@ const Admin = () => {
   const [passwd, setPasswd] = useState("");
   const [login, setLogin] = useState(false);
   const [users, setUsers] = useState([]);
-  const endpoint = "http://localhost:5000/api/users/";
+  const endpoint = "http://localhost:8000/api/users/";
   const getUsers = async () => {
     const response = await fetch(endpoint);
     const data = await response.json();

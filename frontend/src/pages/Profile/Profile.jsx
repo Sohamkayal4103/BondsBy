@@ -15,7 +15,7 @@ const Profile = () => {
   const email = user.email;
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:5000/api/users/${email}`);
+      const response = await fetch(`http://localhost:8000/api/users/${email}`);
       const data = await response.json();
       setName(data.name);
       setImage(data.image);
